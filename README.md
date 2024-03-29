@@ -1,5 +1,5 @@
 # rockpaperscissors
-TOP Priject: Rock Paper Scissors
+TOP Project: Rock Paper Scissors
 
 Purpose of this project is to display some functional knowledge of JS functions(pun intended)
 
