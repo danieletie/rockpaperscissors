@@ -14,20 +14,25 @@ function getComputerChoice (choice) {
 
 
 let computerSelection = getComputerChoice();
-let playerSelection = (prompt ("Please enter your choice", "rock")).toLowerCase();
-if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-    console.log("Good choice!");
-} else {
-    break;
-    console.log("Please enter a valid choice!");
+console.log (computerSelection)
+
+function playerChoice() {
+    let userInput = (prompt ("Please enter your choice", "rock")).toLowerCase();
+    if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
+        return userInput;
+    } else {
+        console.log("Please enter a valid choice!")
+        return;
+    }
 }
 
+let playerSelection = playerChoice();
 
-console.log(computerSelection)
+
 
 function playRound(playerSelection, computerSelection) {
 
-
+    
     if (playerSelection === computerSelection) {
         return "It's a tie!";
     } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
@@ -40,10 +45,8 @@ function playRound(playerSelection, computerSelection) {
 console.log(playRound(playerSelection, computerSelection))
 
 // function playGame () {
-//     i = 0;
+//     let i = 0;
 //     while (i <= 5);
 //     playRound();
-//     i += ;
+//     // i += 1;
 // }
-
-// console.log(playGame())
