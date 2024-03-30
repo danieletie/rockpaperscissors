@@ -1,5 +1,3 @@
-console.log("Hello World")
-
 function getComputerChoice (choice) {
     let guess = Math.floor(Math.random() * 3 ) + 1;
     if (guess === 1) {
@@ -13,36 +11,40 @@ function getComputerChoice (choice) {
 }
 
 
-let computerSelection = getComputerChoice();
-console.log (computerSelection)
 
 
+function playGame () {
+    for ( i = 1; i <= 5; i ++ ) {
+        let computerSelection = getComputerChoice();
+        
+        let playerSelection = (prompt ("Please enter your choice", "rock")).toLowerCase();
 
-let playerSelection = (prompt ("Please enter your choice", "rock")).toLowerCase();
+        console.log ("For Game No. " + i + " :")
 
-function playRound(playerSelection, computerSelection) {
+        console.log ("Computer selected " + computerSelection);
+        console.log ("You selected " + playerSelection);
+
+        function playRound(playerSelection, computerSelection) {   
     
-        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-            if (playerSelection === computerSelection) {
-                return "It's a tie!";
-            } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
-                return ("You win! " + playerSelection + " beats " + computerSelection)
+            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+                if (playerSelection === computerSelection) {
+                    return "It's a tie!";
+                } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
+                    return ("You win! " + playerSelection + " beats " + computerSelection)
+                } else {
+                    return (("You loose! " + computerSelection + " beats " + playerSelection))
+                }       
             } else {
-                return (("You loose! " + computerSelection + " beats " + playerSelection))
+                console.log("Please enter a valid choice!");
             }
-        } else {
-            console.log("Please enter a valid choice!")
-            return;
         }
+
+    
+
+    console.log(playRound(playerSelection, computerSelection))
     
     }
-    
+    console.log ("Game Over!");
+}
 
-console.log(playRound(playerSelection, computerSelection))
-
-// function playGame () {
-//     let i = 0;
-//     while (i <= 5);
-//     playRound();
-//     // i += 1;
-// }
+playGame()
