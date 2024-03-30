@@ -16,31 +16,27 @@ function getComputerChoice (choice) {
 let computerSelection = getComputerChoice();
 console.log (computerSelection)
 
-function playerChoice() {
-    let userInput = (prompt ("Please enter your choice", "rock")).toLowerCase();
-    if (userInput === "rock" || userInput === "paper" || userInput === "scissors") {
-        return userInput;
-    } else {
-        console.log("Please enter a valid choice!")
-        return;
-    }
-}
-
-let playerSelection = playerChoice();
 
 
+let playerSelection = (prompt ("Please enter your choice", "rock")).toLowerCase();
 
 function playRound(playerSelection, computerSelection) {
-
     
-    if (playerSelection === computerSelection) {
-        return "It's a tie!";
-    } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
-        return ("You win! " + playerSelection + " beats " + computerSelection)
-    } else {
-        return (("You loose! " + computerSelection + " beats " + playerSelection))
+        if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+            if (playerSelection === computerSelection) {
+                return "It's a tie!";
+            } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
+                return ("You win! " + playerSelection + " beats " + computerSelection)
+            } else {
+                return (("You loose! " + computerSelection + " beats " + playerSelection))
+            }
+        } else {
+            console.log("Please enter a valid choice!")
+            return;
+        }
+    
     }
-}
+    
 
 console.log(playRound(playerSelection, computerSelection))
 
