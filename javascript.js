@@ -15,34 +15,38 @@ let playerScore = 0;
 let computerScore = 0;
 
 
+
 // Declare variables for buttons
-var rock = document.getElementById("rock");
-var paper = document.getElementById("paper");
-var scissors = document.getElementById("scissors");
+const rock = document.getElementById('rock');
 
-//  Listen for cick on Rock button, make it rock string
+let playerSelection = "";
 
-rock.addEventListener("click", () => {
-    var rock = document.getElementById(".rock");
-    rock = "rock";
-    console.log(rock);
-})
+//  Listen for click on Rock button, make playerSelection rock and run playGame function
+
+rock.addEventListener('click', () => {
+    playerSelection = "rock";
+    playGame();
+    console.log(`2: You selected ${playerSelection}`);
+});
+
 
 // Listen for cick on Paper button, make it paper string
 
-paper.addEventListener("click", () => {
-    var paper = document.getElementById(".paper");
-    paper = "paper";
-    console.log(paper);
-})
+// paper.addEventListener('click', playGame() {
+//     var paper = document.getElementById(".paper");
+//     playerSelection = "paper";
+//     console.log(`You chose ${playerSelection}!`);
+// });
 
 // Listen for cick on Scissors button, make it scissors string
 
 scissors.addEventListener("click", () => {
     var scissors = document.getElementById(".scissors");
     scissors = "scissors";
-    console.log(scissors);
+    console.log(`You chose ${scissors}!`);
 })
+
+
 
 function playGame () {
     // for ( i = 1; i <= 5; i ++ ) {
@@ -54,7 +58,7 @@ function playGame () {
         // console.log ("For Game No. " + i + " :")
 
         console.log ("Computer selected " + computerSelection);
-        // console.log ("You selected " + playerSelection);
+        console.log ("You selected " + playerSelection);
 
 
  
@@ -96,4 +100,3 @@ function playGame () {
     // console.log ("Game Over!");
 }
 
-playGame()
