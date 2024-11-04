@@ -10,6 +10,30 @@ function getComputerChoice (choice) {
 
 }
 
+var spanContext = [];
+
+function updateSpan() {
+
+    // target div with results id
+    var results = document.getElementById('results');
+    
+    // string to display player and computer score
+    var newResult = (`You: ${playerScore} - ${computerScore} : Computer`);
+    
+    // not gonna lie, I don't remember why I went through the hassle of using push amd arrays for this function, but I guess it was fun
+    spanContext.push(newResult);
+
+    var spanContextLen = spanContext.length;
+    var updateSpan = (spanContext[spanContextLen - 1])
+
+    // update the content of results variable
+    results.textContent = updateSpan;
+
+
+
+
+};
+
 
 let playerScore = 0;
 let computerScore = 0;
@@ -18,6 +42,10 @@ let computerScore = 0;
 
 // Declare variables for buttons
 const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+let gameCount = 0;
+// const buttonsClicked = document.querySelector('button');
 
 let playerSelection = "";
 
@@ -25,78 +53,84 @@ let playerSelection = "";
 
 rock.addEventListener('click', () => {
     playerSelection = "rock";
+    gameCount++;
+    console.log(`Round: ${gameCount}`);
     playGame();
-    console.log(`2: You selected ${playerSelection}`);
+    updateSpan();
+    
+    
 });
 
 
-// Listen for cick on Paper button, make it paper string
 
-// paper.addEventListener('click', playGame() {
-//     var paper = document.getElementById(".paper");
-//     playerSelection = "paper";
-//     console.log(`You chose ${playerSelection}!`);
-// });
+//  Listen for click on Paper button, make playerSelection paper and run playGame function
 
-// Listen for cick on Scissors button, make it scissors string
+paper.addEventListener('click', () => {
+    playerSelection = "paper";
+    gameCount++;
+    console.log(`Round: ${gameCount}`);
+    playGame();
+    updateSpan();
+})
 
-scissors.addEventListener("click", () => {
-    var scissors = document.getElementById(".scissors");
-    scissors = "scissors";
-    console.log(`You chose ${scissors}!`);
+
+//  Listen for click on Scissors button, make playerSelection scissors and run playGame function
+
+scissors.addEventListener('click', () => {
+    playerSelection = "scissors";
+    gameCount++;
+    console.log(`Round: ${gameCount}`);
+    playGame();
+    updateSpan();
 })
 
 
 
 function playGame () {
-    // for ( i = 1; i <= 5; i ++ ) {
         let computerSelection = getComputerChoice();
-        
-        
-        // let playerSelection = (prompt ("Please enter your choice", "rock")).toLowerCase();
 
-        // console.log ("For Game No. " + i + " :")
+        // create variable to target div w/ choice id
 
-        console.log ("Computer selected " + computerSelection);
-        console.log ("You selected " + playerSelection);
+        var choice = document.getElementById('choice');
 
+        // string variable to store vomputer and player variable
+        var newChoice = (`Computer selected: ${computerSelection}, You selected: ${playerSelection}`);
 
+        // push the newChoice variable contnt to choice
+        choice.textContent = newChoice;
  
 
 
 
-        // function playRound(playerSelection, computerSelection) {   
+        function playRound(playerSelection, computerSelection) {   
     
-        //     if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
-        //         if (playerSelection === computerSelection) {
-        //             return "It's a tie!";
-        //         } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
-        //             return ("You win! " + playerSelection + " beats " + computerSelection)
-        //         } else {
-        //             return (("You loose! " + computerSelection + " beats " + playerSelection))
-        //         }       
-        //     } else {
-        //         console.log("Please enter a valid choice!");
-        //     }
-        // }
+            if (playerSelection === "rock" || playerSelection === "paper" || playerSelection === "scissors") {
+                if (playerSelection === computerSelection) {
+                    return "It's a tie!";
+                } else if (playerSelection === "scissors" && computerSelection === "paper" || playerSelection === "paper" && computerSelection === "rock" || playerSelection === "rock" && computerSelection === "scissors") {
+                    return ("You win! " + playerSelection + " beats " + computerSelection)
+                } else {
+                    return (("You loose! " + computerSelection + " beats " + playerSelection))
+                }       
+            } else {
+                console.log("Please enter a valid choice!");
+            }
+        }
 
 
-        // if (playRound(playerSelection, computerSelection) === "You win! " + playerSelection + " beats " + computerSelection) {
-        //     playerScore ++ ;
-        // } else if (playRound(playerSelection, computerSelection) === "You loose! " + computerSelection + " beats " + playerSelection) {
-        //     computerScore ++;
-        // } else {
-        //     computerScore;
-        //     playerScore;
-        // }
+        if (playRound(playerSelection, computerSelection) === "You win! " + playerSelection + " beats " + computerSelection) {
+            playerScore ++ ;
+        } else if (playRound(playerSelection, computerSelection) === "You loose! " + computerSelection + " beats " + playerSelection) {
+            computerScore ++;
+        } else {
+            computerScore;
+            playerScore;
+        }
 
-        // console.log (playRound(playerSelection, computerSelection))
+        console.log (playRound(playerSelection, computerSelection))
 
-        // console.log ("Score is: You " + playerScore + " : " + computerScore + " Computer")
+        console.log ("Score is: You " + playerScore + " : " + computerScore + " Computer");
+
         
-
-
-    // }
-    // console.log ("Game Over!");
+    
 }
-
