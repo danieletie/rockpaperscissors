@@ -1,6 +1,50 @@
 
 body {
-    background-color: rgb(165, 190, 212);
-    
+  background-color: rgb(165, 190, 212);
+  font-family: 'Poppins', sans-serif;
+  /* width: 500px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid black;
+  border-radius: 20px; 
+   
 }
 
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+}
+
+.game-buttons .buttons img{
+  border-radius: 50%;
+  padding: 0px;
+  margin: 0px;
+  height: 100px;
+}
+
+/* .game-buttons .buttons img:hover{
+  background: azure;
+} */
+
+
+.game-buttons button{
+  border-radius: 50%;
+  border: 2px solid rgb(234, 237, 237);
+  margin: 0px;
+  padding: 0px;
+  cursor: pointer;
+}
+
+
+/* #choice {
+  
+  border: 1px solid black;
+} */
+
+
+#choice img {
+  height: 50px;
+  border-radius: 50%;
+}

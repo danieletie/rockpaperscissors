@@ -4,30 +4,44 @@
         <meta charset="UTF-8">
         <title>Rock Paper Scissors</title>
         <link rel="stylesheet" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
         
     </head>
     <body>
         
 
-
-        <h1>Rock Paper Scissors Game</h1>
-        <h2>Game Start</h2>
-        <h3>Please select your choice!</h3>
-        <div id="choice"></div>
+        
+        <h1>Rock Paper Scissors</h1>
+        <!-- <h3>Please select your choice!</h3> -->
+        
         <p></p>
+
         <div id = "status"></div>
-        <div>
-            <button class = "buttons" id = "rock">Rock</button>
-            <button class = "buttons" id = "paper">Paper</button>
-            <button class = "buttons" id = "scissors">Scissors</button>
+
+        <div class = 'game-buttons'>
+            <button class = "buttons" id = "rock"><img src = './images/rock.svg'/></button>
+            <button class = "buttons" id = "paper"><img src = './images/paper.svg'/></button>
+            <button class = "buttons" id = "scissors"><img src = './images/scissors.svg'/></button>
         </div>
+
+        <p></p>
+
+        <div id="choice"><img src="" alt="" id = "player-selection"><img src="" alt="" id = "computer-selection"></div>
+
         <h3>Scores:</h3>
+
         <div class="results" id = "results">
             <div id= "result"></div>
         </div>
+
         <p></p>
+
         <div id = "winner"></div>
 
+        <p></p>
+        
         <script src = "./javascript.js"></script>
     </body>
 

@@ -128,7 +128,7 @@ function playGame () {
         let choice = document.getElementById('choice');
 
         // string variable to store computer and player variable
-        let newChoice = (`Computer selected: ${computerSelection}, You selected: ${playerSelection}`);
+        let newChoice = (`You ${playerSelection}  -   ${computerSelection} Computer`);
 
         // push the newChoice variable contnt to choice
         choice.textContent = newChoice;
