@@ -15,24 +15,55 @@ var spanContext = [];
 function updateSpan() {
 
     // target div with results id
-    var results = document.getElementById('results');
+    let results = document.getElementById('results');
     
     // string to display player and computer score
-    var newResult = (`You: ${playerScore} - ${computerScore} : Computer`);
+    let newResult = (`You: ${playerScore} - ${computerScore} : Computer`);
     
     // not gonna lie, I don't remember why I went through the hassle of using push amd arrays for this function, but I guess it was fun
     spanContext.push(newResult);
 
-    var spanContextLen = spanContext.length;
-    var updateSpan = (spanContext[spanContextLen - 1])
+    let spanContextLen = spanContext.length;
+    let updateSpan = (spanContext[spanContextLen - 1])
 
     // update the content of results variable
     results.textContent = updateSpan;
 
 
-
-
 };
+
+function finalResult() {
+    console.log(gameCount);
+    if (gameCount === 5) {
+        let winner = document.getElementById('winner');
+        let newWinner = '';
+        if (playerScore > computerScore) {
+            newWinner = 'You win!';
+            winner.textContent = newWinner;
+        } else if (playerScore < computerScore) {
+            newWinner = 'You lose!';
+            winner.textContent = newWinner;
+        } else {
+            newWinner = 'It\'s a tie!';
+            winner.textContent = newWinner;
+        };
+        
+
+    
+        // let newWinner = (`Final score is:    You ${playerScore} - ${computerScore} Computer`);
+        
+            
+        
+        
+        computerScore = 0;
+        playerScore = 0;
+        gameCount = 0;
+
+    };
+
+    
+
+}
 
 
 let playerScore = 0;
@@ -57,7 +88,7 @@ rock.addEventListener('click', () => {
     console.log(`Round: ${gameCount}`);
     playGame();
     updateSpan();
-    
+    finalResult();
     
 });
 
@@ -71,6 +102,7 @@ paper.addEventListener('click', () => {
     console.log(`Round: ${gameCount}`);
     playGame();
     updateSpan();
+    finalResult();
 })
 
 
@@ -82,6 +114,8 @@ scissors.addEventListener('click', () => {
     console.log(`Round: ${gameCount}`);
     playGame();
     updateSpan();
+    finalResult();
+    
 })
 
 
@@ -91,10 +125,10 @@ function playGame () {
 
         // create variable to target div w/ choice id
 
-        var choice = document.getElementById('choice');
+        let choice = document.getElementById('choice');
 
-        // string variable to store vomputer and player variable
-        var newChoice = (`Computer selected: ${computerSelection}, You selected: ${playerSelection}`);
+        // string variable to store computer and player variable
+        let newChoice = (`Computer selected: ${computerSelection}, You selected: ${playerSelection}`);
 
         // push the newChoice variable contnt to choice
         choice.textContent = newChoice;
@@ -116,7 +150,7 @@ function playGame () {
                 console.log("Please enter a valid choice!");
             }
         }
-
+        
 
         if (playRound(playerSelection, computerSelection) === "You win! " + playerSelection + " beats " + computerSelection) {
             playerScore ++ ;
